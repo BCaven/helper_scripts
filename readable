@@ -1,0 +1,4 @@
+#!/bin/bash
+for file in $@; do
+    [ -r $file ] && echo $file is readable
+done

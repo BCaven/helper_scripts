@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+
+ENDING=".sh"
+REPLACE=""
+
+# get the
+while [ $# -gt 0 ]
+do
+    case $1 in
+        -e) shift; ENDING=$1;;
+        -r) shift; REPLACE=$1;;
+        *) echo "`basename $0`: usage: [-e ENDING TO SEARCH FOR] | [-r REPLACEMENT ENDING]"; exit 1;;
+    esac
+    shift
+done
+
+echo "Searching for files that end with $ENDING"
+echo "New ending: $REPLACE"
+
+# checking the first character to see if it is a "."
+
+if [ `echo $ENDING | cut -c1-1` == "." ]; then
+    echo "dangerous ending, adding \\"
+    ENDING="\\$ENDING"
+fi
+
+
+# move the files
+for file in `ls -l | tail -n +2 | awk '{print $9}' | grep "$ENDING$"`
+do
+    if [ -f "$file" ]; then
+       newFile=`echo $file | sed -E "s/(.*)$ENDING$/\1/"`
+       newFile="$newFile$REPLACE"
+       echo "moving $file to $newFile"
+       mv "$file" "$newFile"
+    fi
+
+done

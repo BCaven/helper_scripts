@@ -1,0 +1,3 @@
+20289 - Systems
+20312 - Data Structures
+30321 - Computer Architecture
