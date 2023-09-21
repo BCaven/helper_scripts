@@ -29,7 +29,6 @@ def main():
     # parse flags
 
     clean(get_site(URL))
-    pass
 
 if __name__ == "__main__":
     main()

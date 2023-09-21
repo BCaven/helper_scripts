@@ -1,1 +1,1 @@
-Temperature: 67 degrees
+Temperature: 63 degrees
