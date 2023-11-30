@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 
-bed_time="2300"
+bed_time="2230"
 wake_time="0600"
 watchlist="watchlist.txt"
 woken_up="false"
