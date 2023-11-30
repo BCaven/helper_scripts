@@ -5,7 +5,6 @@ bed_time="2230"
 wake_time="0600"
 watchlist="watchlist.txt"
 woken_up="false"
-CRON=""
 
 while [ $# -gt 0 ]
 do
@@ -32,8 +31,6 @@ do
         do
             killall $item
         done
-    else
-        woken_up="true"
     fi
     sleep 5m
 done
