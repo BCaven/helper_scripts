@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 
-bed_time="2230"
+bed_time="2300" # TODO: link bed time and wake time to Oura API
 wake_time="0600"
 watchlist="watchlist.txt"
 woken_up="false"
@@ -29,7 +29,7 @@ do
         echo "normal model - before wake time"
         for item in `cat $watchlist`;
         do
-            killall $item
+            killall -9 $item
         done
     fi
     sleep 5m
