@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+swaylock -i ~/Pictures/wallpaper/blur-abstract-colorful.png
