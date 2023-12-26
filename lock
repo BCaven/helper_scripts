@@ -1,3 +1,20 @@
 #!/usr/bin/sh
 
-swaylock -i ~/Pictures/wallpaper/blur-abstract-colorful.png
+background=$HOME/Pictures/wallpaper/blur-abstract-colorful.png
+img=/tmp/i3lock.png
+
+if [ "$XDG_CURRENT_DESKTOP" == "sway" ] ; then
+    swaylock -i $background
+elif [ "$XDG_CURRENT_DESKTOP" == "i3" ] ; then
+    # pixelization script from here
+    # https://thevaluable.dev/i3-config-mouseless/
+    sleep 0.4 # wait for the power menu to hide
+
+    # might have to relook at this for multi monitor support
+    # man scrot
+    scrot -o $img
+    convert $img -scale 5% -scale 2000% $img
+    # i3lock is convenient because it comes preinstalled but might want to look
+    # into script that has multi monitor support
+    i3lock -i $img
+fi
