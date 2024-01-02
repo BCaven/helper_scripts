@@ -1,10 +1,9 @@
 #!/usr/bin/env sh
 
-# BUG: in sway, if the application is in full screen mode, it will not be deleted
 
 bed_time="2300" # TODO: link bed time and wake time to Oura API
 wake_time="0600"
-watchlist="watchlist.txt"
+watchlist="$HOME/helper_scripts/watchlist.txt"
 
 while [ $# -gt 1 ]
 do
