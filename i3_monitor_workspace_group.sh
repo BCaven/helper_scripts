@@ -3,6 +3,8 @@
 # original script from here:
 # https://www.reddit.com/r/i3wm/comments/5zwbg0/different_workspace_groups_per_monitor/
 
+# BUG: when toggling quickly the screen name does not return in time and just ends up as an empty string
+
 action="$1"
 # eval $(xdotool getmouselocation --shell) # sadly this thinks all the screens are just one big screen
 
@@ -24,6 +26,11 @@ elif [ "$action" == "goto" ] || [ "$action" == "move" ]; then
     active_workspace="$2"
 fi
 echo after modification $active_workspace
+
+# temporary fix: make sure SCREEN is not empty
+if [[ "$SCREEN" == "" ]]; then
+    exit 1
+fi
 
 target_workspace=${SCREEN}-${active_workspace}
 
