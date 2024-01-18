@@ -20,6 +20,7 @@ kill_programs () {
     for item in `cat $watchlist`;
     do
         # TODO: implement sway-friendly version
+        # TODO: if killall fails, use `ps aux | grep $item` combo to check again and kill by pid
         killall -9 $item
     done
 }
