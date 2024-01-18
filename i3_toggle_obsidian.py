@@ -24,16 +24,14 @@ def main():
                 i3.command('[class="obsidian"] scratchpad show; sticky enable')
                 if con.workspace().name == "__i3_scratch":
                     # load from github
-                    print("pulling from github")
                     return_val = os.system(
                         f'(cd {OBSIDIAN_VAULT} && pwd && git pull --rebase)')
                     if return_val != 0:
                         os.system('dunstify "Obsidian Workspace: failed to pull from remote"')
                 else:
                     # push to github
-                    print("pushing to github")
                     return_val = os.system(
-                        f'(cd {OBSIDIAN_VAULT} && git add -A && git commit -m "automated update" && git push -u origin main)'
+                        f'(cd {OBSIDIAN_VAULT} && git add -A && if [ `git diff --cached --numstat | wc -l` -gt "0" ] ; then git commit -m "automated update" && git push -u origin main ; fi)'
                     )
                     if return_val != 0:
                         os.system('dunstify "Obsidian Workspace: failed to push to remote"')
