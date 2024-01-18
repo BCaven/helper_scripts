@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.11
+#!/usr/bin/env python3.12
 """
 Toggle obsidian.
 
@@ -10,7 +10,7 @@ check for remote changes when obsidian is opened.
 # pip install i3ipc
 import i3ipc
 import os
-OBSIDIAN_VAULT = "/home/balke/Documents/obsidian-workspace"
+OBSIDIAN_VAULT = "/home/bake/Documents/obsidian-workspace"
 
 
 def main():
@@ -25,14 +25,18 @@ def main():
                 if con.workspace().name == "__i3_scratch":
                     # load from github
                     print("pulling from github")
-                    os.system(
+                    return_val = os.system(
                         f'(cd {OBSIDIAN_VAULT} && pwd && git pull --rebase)')
+                    if return_val != 0:
+                        os.system('dunstify "Obsidian Workspace: failed to pull from remote"')
                 else:
                     # push to github
                     print("pushing to github")
-                    os.system(
+                    return_val = os.system(
                         f'(cd {OBSIDIAN_VAULT} && git add -A && git commit -m "automated update" && git push -u origin main)'
                     )
+                    if return_val != 0:
+                        os.system('dunstify "Obsidian Workspace: failed to push to remote"')
 
 
 if __name__ == "__main__":
