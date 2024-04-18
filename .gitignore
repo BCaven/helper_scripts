@@ -1,0 +1,10 @@
+*.AppImage
+django-admin
+normalizer
+pip*
+senp*
+pywal*
+wal
+py*
+sqlformat
+tqdm
