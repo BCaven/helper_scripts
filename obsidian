@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+# only one obsidian instance open at a time
+if ! ps aux | grep -v grep | grep Obsidian.AppImage ; then
+    echo launching obsidian...
+    $HOME/.software/Obsidian.AppImage "$@" &
+fi
