@@ -1,10 +1,14 @@
 #!/usr/bin/sh
 
-background=$HOME/Pictures/wallpaper/blur-abstract-colorful.png
-img=/tmp/i3lock.png
+img=/tmp/lock.png
 
 if [ "$XDG_CURRENT_DESKTOP" == "sway" ] ; then
-    swaylock -i $background
+    sleep 0.4 # wait for the power menu to hide
+
+    grim $img
+    convert $img -scale 5% -scale 2000% $img
+
+    swaylock -i $img
 elif [ "$XDG_CURRENT_DESKTOP" == "i3" ] ; then
     # pixelization script from here
     # https://thevaluable.dev/i3-config-mouseless/
