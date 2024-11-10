@@ -11,6 +11,7 @@ cd BochumGestures1998/
 classes=`ls sih/ | sed -E 's/[a-z23]*([0-9]{2})([a-z])00R.tiff/\1/g' | sort -u`
 mkdir train_sih/
 for class in $classes; do
+    class=$(($class-1))
     counter=0
     mkdir train_sih/$class/
     # grab every file that matches that class
@@ -29,6 +30,7 @@ echo "sih images done"
 classes=`ls rgb/ | sed -E 's/[a-z23]*([0-9]{2})([a-z])00R.tiff/\1/g' | sort -u`
 mkdir train_rgb/
 for class in $classes; do
+    class=$(($class-1))
     counter=0
     mkdir train_rgb/$class/
     # grab every file that matches that class
