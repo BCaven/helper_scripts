@@ -5,7 +5,6 @@ tar -xvzf BochumGestures1998.tar.gz
 rm BochumGestures1998.tar.gz
 cd BochumGestures1998/
 
-echo "only using sih images for now"
 
 # grab all of the things for each class
 
@@ -22,6 +21,7 @@ for class in $classes; do
     done
 done
 rm -rf sih/
+echo "sih images done"
 # and do it again for rgb
 
 # grab all of the things for each class
@@ -39,3 +39,4 @@ for class in $classes; do
     done
 done
 rm -rf rgb/
+echo "rgb images done"
