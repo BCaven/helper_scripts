@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.12
+#!/usr/bin/env python3
 """
 Toggle obsidian.
 
@@ -10,7 +10,7 @@ check for remote changes when obsidian is opened.
 # pip install i3ipc
 import i3ipc
 import os
-OBSIDIAN_VAULT = "/home/bake/Documents/obsidian-workspace"
+OBSIDIAN_VAULT = "/home/balke/Documents/obsidian-workspace"
 
 
 def main():
