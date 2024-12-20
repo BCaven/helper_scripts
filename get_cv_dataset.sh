@@ -18,7 +18,7 @@ for class in $classes; do
     # grab every file that matches that class
     # and add it to the new directory
     for file in `ls sih/ | grep $class_label | sed -E 's/.tiff//g'`; do
-        cp sih/$file.tiff train_sih/$class/$counter.tiff
+        convert sih/$file.tiff train_sih/$class/$counter.jpg
         counter=$(($counter+1))
     done
 done
@@ -38,7 +38,7 @@ for class in $classes; do
     # grab every file that matches that class
     # and add it to the new directory
     for file in `ls rgb/ | grep $class_label | sed -E 's/.tiff//g'`; do
-        cp rgb/$file.tiff train_rgb/$class/$counter.tiff
+        convert rgb/$file.tiff train_rgb/$class/$counter.jpg
         counter=$(($counter+1))
     done
 done
