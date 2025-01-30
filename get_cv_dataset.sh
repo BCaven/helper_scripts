@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# used to grab data and format it in a way that pytorch can use
+
 wget https://www.idiap.ch/webarchives/sites/www.idiap.ch/resource/gestures/data/BochumGestures1998.tar.gz
 tar -xzf BochumGestures1998.tar.gz
 rm BochumGestures1998.tar.gz

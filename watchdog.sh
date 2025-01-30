@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
+# kill the things we don't want when we don't want them
 
-bed_time="2300" # TODO: link bed time and wake time to Oura API
+bed_time="2300" # TODO: make this something that can be dynamically changed
 wake_time="0600"
 watchlist="$HOME/helper_scripts/watchlist.txt"
 

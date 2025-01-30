@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# move files of one ending to the same file names with a different ending
+# used when windows decided that it only wanted to open some files
+
 ENDING=".sh"
 REPLACE=""
 

@@ -1,5 +1,0 @@
-Unix Philosophy:
-
-Write programs that do one thing and do it well.
-Write programs that work together.
-Wrte programs to handle text streams because that is a universal interface.
